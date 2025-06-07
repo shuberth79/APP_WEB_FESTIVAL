@@ -9,18 +9,31 @@
 </head>
 
 <body>
-<body>
     <div class="login-form">
-        <h2>Login con Sinergia</h2>
-        <form action="auth" method="POST">
-            <input type="text" name="user" id="user" placeholder="Ingrese su usuario" required>
-            <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" required>
-            <input type="submit" class="btn-login" value="login">login</button>
+        <h2>Login</h2>
+        <form action="/auth" method="POST">
+            <input type="text" name="user" placeholder="Ingrese su usuario" required>
+            <input type="password" name="pass" placeholder="Contraseña" required>
+            <button type="submit" class="btn-login">Login</button>
         </form>
-
-        <a href="/registro" class="btn-register">Resgístrate</a>
+        <a href="/registro" class="btn-register"> Registrarse</a>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <% if (typeof alert !=='undefined' ) { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(() => {
+                    window.location = '/<%= ruta %>'
+                })
+        </script>
+        <% } %>
 </body>
 
 </html>
