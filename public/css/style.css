@@ -1,346 +1,336 @@
+/* Estilos Generales */
 body {
-    background-color: rgb(255, 255, 255);
-    font-family: roboto;
-    margin: auto;
-    text-align: center;
-}
-
-.login-form,
-.contenedor {
-    width: 30%;
-    margin: 0 auto;
-}
-.contenedor2 {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.login-form h1 {
-    text-align: center;
-    color: midnightblue;
-    font-size: 28px;
-    padding: 70px 0 10px 0;
-}
-
-.login-form input[type="password"],
-.login-form input[type="text"] {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-/* Estilos boton LOGIN*/
-.btn-login {
-    width: 100%;
-    padding: 15px;
-    background-color: #223172;
-    border: 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: large;
-    color: #ffffff;
-}
-.btn-login:hover,
-.btn-login:active {
-    color: #fff;
-    background-color: #20369b;
-    border-color: #20369b;
-}
-.btn-login:focus {
-    box-shadow: 0 0 0 3px #20369b;
-}
-
-/* Estilos boton REGISTER*/
-.btn-register {
-    width: 100%;
-    padding: 15px;
-    background-color: #158b36;
-    border: 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: large;
-    color: #ffffff;
-    margin-top: 20px;
-    /* Para dar la apariencia de un boton */
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-}
-.btn-register:hover,
-.btn-register:active {
-    color: #fff;
-    background-color: #14ad3f;
-    border-color: #14ad3f;
-}
-.btn-register:focus {
-    box-shadow: 0 0 0 3px #14ad3f;
-}
-
-.inline {
-    display: inline;
-}
-
-/* Estilos de link para realizar el LOGOUT*/
-.a-logout:link,
-.a-logout:visited {
-    background-color: white;
-    color: black;
-    border: 2px solid #f87171;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.a-logout:hover,
-.a-logout:active {
-    background-color: #f87171;
-    color: white;
-}
-
-/* Estilos boton CANCELAR*/
-.btn-cancel {
-    width: 50%;
-    padding: 15px;
-    background-color: #9ca3af;
-    border: 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: medium;
-    color: #ffffff;
-    text-align: center;
-    margin-top: 20px;
-    /* Para dar la apariencia de un boton */
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-}
-.btn-cancel:hover,
-.btn-cancel:active {
-    color: #fff;
-    background-color: #6b7280;
-    border-color: #6b7280;
-}
-.btn-cancel:focus {
-    box-shadow: 0 0 0 3px #6b7280;
-}
-
-/* Estilos boton GUARDAR*/
-.btn-save {
-    width: 50%;
-    padding: 15px;
-    background-color: #1d4ed8;
-    border: 0;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: medium;
-    color: #ffffff;
-    margin-top: 20px;
-    /* Para dar la apariencia de un boton */
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-}
-.btn-save:hover,
-.btn-save:active {
-    color: #fff;
-    background-color: #1e3a8a;
-    border-color: #1e3a8a;
-}
-.btn-save:focus {
-    box-shadow: 0 0 0 3px #1e3a8a;
-}
-
-/* form User Registration */
-.register-form {
-    width: 400px;
-    margin: 0 auto;
-    padding: 0px 20px 60px 20px;
-    margin-top: 35px;
-    font-family: roboto;
-    text-align: left !important;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-}
-
-.register-form h1 {
-    text-align: left;
-    color: midnightblue;
-    font-size: 22px;
-    padding: 70px 0 10px 0;
-}
-.register-form input[type="password"],
-.register-form input[type="text"] {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #ced4da;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-/* Estilos para el select dropdown */
-.select-css {
-    display: block;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.3;
-    padding: 0.4em 1.4em 0.3em 0.8em;
-    width: 400px;
-    max-width: 100%;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f5f5f5;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Un fondo gris claro para el cuerpo */
+    color: #333;
 }
-.select-css::-ms-expand {
-    display: none;
+
+.container, .main-container {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Para manejar las esquinas redondeadas correctamente con los hijos */
+    width: 90%; /* Ajusta según sea necesario */
+    max-width: 1200px; /* Ancho máximo para el contenedor principal */
+    margin: 20px;
 }
-.select-css:hover {
-    border-color: #888;
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<< Sección del Logo (Común a Login y Registro) */
+.logo-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Color verde oscuro como en la imagen */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
-.select-css:focus {
-    border-color: #aaa;
-    box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
-    box-shadow: 0 0 0 3px -moz-mac-focusring;
-    color: #222;
-    outline: none;
+
+.logo-section img {
+    max-width: 650px; /* Ajusta el tamaño del logo */
+    margin-bottom: 10px;
 }
-.select-css option {
+
+.logo-section h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: bold;
+}
+
+.logo-section h2 {
+    font-size: 1.8em;
+    margin: 0;
     font-weight: normal;
 }
 
-/* Estilos de link para ir a LOGIN*/
-.a-login:link,
-.a-login:visited {
-    background-color: white;
-    color: black;
-    border: 2px solid #14ad3f;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.logo-section h3 {
+    font-size: 2.2em;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.a-login:hover,
-.a-login:active {
-    background-color: #14ad3f;
-    color: white;
-}
-
-/*Estilo del título*/
-#titu {
-    color: #14ad3f;
-}
-
-/* Estilo del menú*/
-.menunave {
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
-}
-
-.nave-lista {
-    list-style: none;
-}
-
-.nave-item {
-    display: inline;
-}
-
-.nave-link {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: #20369b;
-    border-radius: 5px;
-    padding: 10px 20px;
-    display: inline-block;
-}
-
-.nave-link:hover {
-    background-color: #158b36;
-    color: rgb(255, 255, 255);
-    border-radius: 5px;
-}
-
-/* ------------- footer---------*/
-footer {
-    background-color: #143d20;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer-container {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0 20px;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px 0;
-}
-
-.footer-section h3 {
-    margin-bottom: 10px;
-}
-
-.footer-section p,
-.footer-section ul {
-    margin-bottom: 10px;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 5px;
-}
-
-.footer-section ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-section ul li a:hover {
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    margin-top: 20px;
+.logo-section p {
     font-size: 0.9em;
+    margin-top: 10px;
+    opacity: 0.8;
 }
 
-/*Estilo de la imagen de inicio*/
-/* Contenedor de la imagen */
-.image-container {
-    overflow: hidden; /* Para asegurarse de que la imagen no se desborde */
-    border-radius: 10px; /* Bordes redondeados para un mejor efecto visual */
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<< Sección del Formulario (Login y Registro) */
+.form-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-/* Imagen con efecto hover */
-.hover-image {
-    width: 80%; /* Puedes ajustar el tamaño según sea necesario */
-    height: auto;
-    transition: transform 0.5s ease, filter 0.5s ease; /* Transición para un efecto suave */
+.register-form, .login-form {
+    width: 100%;
+    max-width: 460px; /* Ancho máximo para los formularios */
+    text-align: center;
 }
 
-.hover-image:hover {
-    transform: scale(
-        1.1
-    ); /* Aumenta el tamaño de la imagen al pasar el ratón por encima */
-    filter: brightness(1.2); /* Incrementa el brillo de la imagen */
+/*TITULO DEL FORMULARIO 
+.register-form h1, .login-form h2 {
+    color: #b08936; /* Verde oscuro */
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group select {
+    width: calc(100% - 20px); /* Ajusta para padding */
+    padding: 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.inline-buttons {
+    display: flex;
+    justify-content: space-around; /* O space-between, center */
+    margin-top: 30px;
+}
+
+.btn-cancel, .btn-save, .btn-login, .btn-register {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancel {
+    background-color: #f4ae36; /* Rojo */
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #d32f2f;
+}
+
+.btn-save {
+    background-color: #af4cad; /* Verde */
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #45a049;
+}
+
+.btn-login {
+    background-color: #ff9800; /* Azul */
+    color: white;
+    width: 100%; /* Ocupa todo el ancho si no hay otros botones al lado */
+    margin-bottom: 15px;
+}
+
+.btn-login:hover {
+    background-color: #1976D2;
+}
+
+.btn-register {
+    background-color: #ff9800; /* Naranja */
+    color: white;
+    width: 100%;
+    display: block; /* Para que ocupe su propia línea */
+    padding: 12px 0; /* Ajusta padding */
+}
+
+.btn-register:hover {
+    background-color: #fb8c00;
+}
+
+
+/* Estilos para index.ejs (Página Principal) */
+.main-container {
+    flex-direction: column; /* Contenido apilado */
+    align-items: center;
+    padding: 40px;
+    width: 90%; /* Ocupa la mayor parte del ancho */
+    max-width: 1200px;
+    margin: 20px auto; /* Centrar en la página */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #916842; /* COLOR DEL TITULO */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Línea separadora */
+}
+
+.header-section h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.user-info, .guest-info {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.user-info p, .guest-info p {
+    margin: 5px 0; /* Espacio alrededor del párrafo */
+}
+
+.username-display {
+    font-weight: bold;
+    color: #007bff; /* Azul para el nombre del usuario */
+}
+
+.message-not-logged {
+    font-style: italic;
+    color: #666;
+}
+
+.btn-logout, .btn-login-main {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f436e4; /* Rojo */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login-main {
+    background-color: #2196F3; /* Azul para "Iniciar Sesión" */
+}
+
+.btn-logout:hover, .btn-login-main:hover {
+    background-color: #d32f2f;
+}
+
+.content-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 30px; /* Espacio entre las secciones */
+    width: 100%;
+    justify-content: center; /* Centrar elementos dentro */
+    align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+}
+
+.image-gallery {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 300px; /* Puedes aumentar este valor para un ancho mínimo mayor, ej. 400px */
+    display: grid;
+    /* Ajusta según el tamaño deseado: */
+    /* grid-template-columns: repeat(2, 1fr); /* 2 columnas si quieres que las imágenes sean más pequeñas */
+    grid-template-columns: 1fr; /* Una sola columna para imágenes más grandes */
+    gap: 15px; /* Espacio entre imágenes */
+    padding: 15px; /* Reducir padding si es necesario */
+    background-color: #e8f5e9; /* Fondo claro para la galería */
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Sutil sombra interna */
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 200px; /* Establece una altura fija si quieres que todas tengan el mismo tamaño */
+    object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsión */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.antecedentes-section {
+    flex: 2; /* Ocupa el doble de espacio que la galería */
+    min-width: 400px; /* Ancho mínimo para los antecedentes */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.antecedentes-section h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.antecedentes-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.btn-cerrar-sesion-bottom {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0; /* Centrar y margen superior */
+    padding: 12px 30px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cerrar-sesion-bottom:hover {
+    background-color: #d32f2f;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .container, .main-container {
+        flex-direction: column;
+        width: 95%;
+        padding: 20px; /* Ajusta padding para móviles */
+    }
+
+    .form-section, .logo-section {
+        padding: 20px;
+    }
+
+    .inline-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-cancel, .btn-save, .btn-login, .btn-register {
+        width: 100%;
+    }
+
+    .content-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image-gallery {
+        min-width: unset; /* Eliminar min-width en móviles si interfiere */
+        grid-template-columns: 1fr; /* Una columna para móviles */
+    }
 }

@@ -4,25 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bienvenido - Festival de la Calle Cordova</title>
     <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 
 <body>
-    <h1>Página de inicio</h1>
-    <h2>Bienvenido
-        <% if (login) {%>
-            <p>El usuario conectado es: <%=user %>
-            </p>
-            <a href="/logout" class="a-logout">Cerrar sesión</a>
+    <div class="main-container">
+        <div class="header-section">
+            <h2>Bienvenido</h2>
+            <% if (login) {%>
+                <div class="user-info">
+                    <p>El usuario conectado es: <span class="username-display"><%=user %></span></p>
+                    <a href="/logout" class="btn-logout">Cerrar sesión</a>
+                </div>
             <% }else { %>
-                <p>
-                    <%= user %>
-                </p>
-                <a href="/login" class="a-login">Iniciar sesión </a>
+                <div class="guest-info">
+                    <p class="message-not-logged">
+                        <%= user %> </p>
+                    <a href="/login" class="btn-login-main">Iniciar sesión </a>
+                </div>
+            <% } %>
+        </div>
 
-                <% } %>
-    </h2>
+        <div class="content-section">
+            <div class="image-gallery">
+                <img src="/resources/img/_DSC4465.jpg" alt="Festival Image 1">
+            </div>
+
+            <div class="antecedentes-section">
+                <p>
+                    El Festival desde su inicio hasta el 2023 ha acogió a más de 12.000 personas que disfrutaron la variada agenda que incluyeron eventos de historia, poesía y
+                    tova como antesala al gran día.
+                </p>
+                <h4>INFORMACIÓN DE INSCRIPCIÓN</h4>
+                <ul>
+                    <li>Lugar: Calle Cordova y Mendiburu desde las 9:00 - 23:00</li>
+                    <li>Reserva stand (2x2) con anticipación</li>
+                    <li>Incluye: mesa, 4 sillas, luz eléctrica</li>
+                    <li>Obligatorio extintor en el caso de manipular fuego.</li>
+                    <li>Info / reservas: 0987297528</li>
+                </ul>
+
+                <hr class="separator">
+                <ul>
+                    <li>Banco del Pacífico</li>
+                    <li>Cta Ahorro N° 1066490782</li>
+                    <li>Herrera Mata Miriam Maribel</li>
+                    <li>C.I. 0917293946</li>
+                </ul>
+                <hr class="separator">
+
+                <h4>Valor de stands gastronómicos y culturales</h4>
+                <ul>
+                    <li>$75 stand sin difusión redes</li>
+                    <li>$100 stand + difusión redes</li>
+                    <li>$40 derecho espacio (Artesanos)</li>
+                    <li>Comprobantes de pago: <span class="email-address">festivaldelacallecordova@gmail.com</span></li>
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
 </body>
 
 </html>

@@ -8,7 +8,7 @@ const db = require("./database/db");
 
 
 //9.2 ######################################## SERVIDOR ######################################## 
-app.listen(4000, () => {  //
+app.listen(2000, () => {  //
     console.log("El servidor está ejecutándose en http://localhost:4000");
 });
 
@@ -30,6 +30,7 @@ app.use(
 
 //9.4 ######################################## DEFINIR RUTAS ######################################## 
 
+
 app.get("/", (req, res) => {
     if (req.session.loggedin) {
         res.render("index", { user: req.session.name, login: true });
@@ -38,12 +39,15 @@ app.get("/", (req, res) => {
     }
 });
 
+
+// En index.js
 app.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login", { alert: false }); // <--- ¡Asegúrate de que esto esté así!
 });
 
 app.get("/registro", (req, res) => {
-    res.render("register");
+    // Cuando se accede directamente a /registro, pasamos 'alert: false' por defecto.
+    res.render("register", { alert: false });
 });
 
 
@@ -71,6 +75,21 @@ app.post("/register", async (req, res) => {
     const rol = req.body.rol;
     const pass = req.body.pass;
 
+
+        // Validación básica: campos no vacíos
+    if (!user || !name || !rol || !pass) {
+        return res.render("register", {
+            alert: true,
+            alertTitle: "Advertencia",
+            alertMessage: "Todos los campos son obligatorios",
+            alertIcon: "warning",
+            showConfirmButton: true,
+            timer: false,
+            ruta: "registro", // Redirige a la página de registro de nuevo
+        });
+    }
+
+
     //Cifrar la contraseña
     const passwordHash = await bcrypt.hash(pass, 8);
 
@@ -81,13 +100,27 @@ app.post("/register", async (req, res) => {
         "INSERT INTO usuarios SET ?",
         {
             usuario: user,
-            nombre: name,
+            nombres: name,
             rol: rol,
             pass: passwordHash
         },
         async (error, results) => {
             if (error) {
                 console.log(error);
+                // Si hay un error de base de datos (ej. usuario duplicado)
+                let errorMessage = "Error en el registro.";
+                if (error.code === 'ER_DUP_ENTRY') { // Código de error para entrada duplicada en MySQL
+                    errorMessage = "El nombre de usuario ya existe. Por favor, elija otro.";
+                }
+                res.render("register", {
+                    alert: true,
+                    alertTitle: "Error de Registro",
+                    alertMessage: errorMessage,
+                    alertIcon: "error",
+                    showConfirmButton: true,
+                    timer: false,
+                    ruta: "registro", // Se mantiene en la página de registro
+                });
             } else {
                 res.render("register", {
                     alert: true,
@@ -96,7 +129,7 @@ app.post("/register", async (req, res) => {
                     alertIcon: "success",
                     showConfirmButton: false,
                     timer: 2500,
-                    ruta: "",
+                    ruta: "Login",
                 });
             }
         }
@@ -159,16 +192,27 @@ app.post("/auth", async (req, res) => {
             showConfirmButton: true,
             timer: false,
             ruta: 'login',
-            login:false,
+            login:true,
         });
     }
 });
 
-// - Ruta que será cargada para destruir la sesión y redirigir a la página principal
-app.get("/logout", (req, res) => {
-    req.session.destroy(() => {
-        res.redirect("/");
-    })
+
+// Ruta de logout
+app.get('/logout', (req, res) => {
+    // Destruir la sesión actual del usuario
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error al destruir la sesión:', err);
+            // Podrías renderizar una página de error o simplemente redirigir
+            res.redirect('/'); // Redirigir a la página de inicio incluso si hay un error
+        } else {
+            // Eliminar la cookie de sesión del navegador
+            res.clearCookie('connect.sid'); // 'connect.sid' es el nombre por defecto de la cookie de sesión de Express
+            // Redirigir al usuario a la página de login o a la página principal (donde se vea que no está logueado)
+            res.redirect('/login'); // O res.redirect('/'); si tu '/' maneja el estado de no logueado
+        }
+    });
 });
 
 

@@ -4,24 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - Festival de la Calle Cordova</title>
     <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 
 <body>
-    <div class="login-form">
-        <h2>Login</h2>
-        <form action="/auth" method="POST">
-            <input type="text" name="user" placeholder="Ingrese su usuario" required>
-            <input type="password" name="pass" placeholder="Contraseña" required>
-            <button type="submit" class="btn-login">Login</button>
-        </form>
-        <a href="/registro" class="btn-register"> Registrarse</a>
+    <div class="container">
+        <div class="logo-section">
+            <img src="/resources/img/logo.png" alt="Festival de la Calle Cordova Logo">
+            <h1>FESTIVAL</h1>
+            <h2>DE LA CALLE</h2>
+            <h3>CORDOVA</h3>
+            <p>FERIA INTERCULTURAL Y GASTRONÓMICA PORTEÑA</p>
+        </div>
+
+        <div class="form-section">
+            <div class="login-form">
+                <h2>Login</h2>
+                <form action="/auth" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="user" placeholder="Ingrese su usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="pass" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+                <a href="/registro" class="btn-register"> Registrarse</a>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <% if (typeof alert !=='undefined' ) { %>
+    <% if (typeof alert !=='undefined' && alert) { %>
         <script>
             Swal.fire({
                 title: '<%= alertTitle %>',
@@ -30,10 +46,17 @@
                 showConfirmButton: <%= showConfirmButton %>,
                 timer: <%= timer %>
             }).then(() => {
-                    window.location = '/<%= ruta %>'
-                })
+                if ('<%= ruta %>' === '' && '<%= alertIcon %>' === 'success') {
+                    window.location = '/'; // Redirige a la página principal
+                } else if ('<%= ruta %>' !== '') {
+                    window.location = '/<%= ruta %>' // Para otros casos como errores donde 'ruta' es 'login'
+                } else {
+                    // Si no hay ruta y no es éxito (ej. error sin ruta específica), recargar la página actual
+                    window.location.reload();
+                }
+            })
         </script>
-        <% } %>
+    <% } %>
 </body>
 
 </html>
