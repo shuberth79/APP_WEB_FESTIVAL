@@ -1,8 +1,7 @@
 /* Estilos Generales */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #f0f2f5;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -14,6 +13,7 @@ body {
 
 .container, .main-container {
     display: flex;
+    flex-direction: row; /* Elementos en fila */
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -23,23 +23,27 @@ body {
     margin: 20px;
 }
 
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<< Sección del Logo (Común a Login y Registro) */
-.logo-section {
-    flex: 1;
+/* ################################ SECCION DEL LOGO (Común a Login y Registro) */
+.logo-section {       
+    flex: 1.05;  /* TAMAÑO DEL FONDO DE LA SECCION LOGO */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff; /* Color verde oscuro como en la imagen */
+    background-color: #ffffff; /* COLOR DE FONDO */
     color: #fff;
     padding: 20px;
     text-align: center;
+    box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
+/* ################################ TAMAÑO DEL LOGO FCC*/
 .logo-section img {
-    max-width: 650px; /* Ajusta el tamaño del logo */
-    margin-bottom: 10px;
+    max-width: 80%; /* AJUSTE DE TAMAÑO IMAGEN LOGO (esté donde esté)*/
+    height: auto;
+    display: block; /* ELIMINA ESPACIO EXTRA DEBAJO DE LA IMAGEN */
 }
+
 
 .logo-section h1 {
     font-size: 2.5em;
@@ -66,45 +70,55 @@ body {
     opacity: 0.8;
 }
 
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<< Sección del Formulario (Login y Registro) */
+/* ########################################################### */
+/* ################################## PAGINAS LOGIN - REGISTRO */
+/* ########################################################### */
+
 .form-section {
-    flex: 1;
-    padding: 40px;
+    flex: 1; /* AJUSTADO: Le damos más espacio al formulario para que los botones se centren mejor */
+    padding: 40px;    
     display: flex;
+    flex-direction: column;  /* NUEVO */
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box; /* NUEVO */
+    text-align: center;  /* NUEVO */
 }
-
+/* ################################## PAGINAS LOGIN - REGISTRO */
 .register-form, .login-form {
-    width: 100%;
-    max-width: 460px; /* Ancho máximo para los formularios */
+    width: 80%;  /* LONGITUD BOTONES BLANCO IMPUT LOGIN */
     text-align: center;
 }
 
-/*TITULO DEL FORMULARIO 
+/*############################# TITULO DEL FORMULARIO LOGIN */
 .register-form h1, .login-form h2 {
-    color: #b08936; /* Verde oscuro */
-    margin-bottom: 30px;
+    color: #b08936; /* COLOR TITULO LOGIN */
+    margin-bottom: 20px;
     font-size: 2em;
 }
-
+/*############################# INTERLINEADO BOTONES DE LOGIN* */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 13px; /* MODIFICACION INTER-BOTONES */
     text-align: left;
 }
 
-.form-group label {
+/* ############################################################ */
+/* ######################### INPUT ############################ */
+/* ############################################################ */
+
+/*############################# TEXTO IMPUT DE LOGIN* */
+.form-group label {  
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #555;
+    color: #555;   /* MODIFICAR COLOR TEXTO IMPUT*/
 }
 
 .form-group input[type="text"],
 .form-group input[type="password"],
 .form-group select {
-    width: calc(100% - 20px); /* Ajusta para padding */
+    width: calc(100% - 40px); /* AJUSTE ESPACIOS IMPUT LOGIN */
     padding: 12px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -116,6 +130,8 @@ body {
     display: flex;
     justify-content: space-around; /* O space-between, center */
     margin-top: 30px;
+    width: 100%;
+    max-width: 350px;
 }
 
 .btn-cancel, .btn-save, .btn-login, .btn-register {
@@ -127,51 +143,53 @@ body {
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s ease;
+    /* Los anchos individuales de los botones serán afectados por los contenedores y los 'flex' */
 }
 
+/* ############################################################ */
+/* ######################### BOTONES ########################## */
+/* ############################################################ */
+
+/* ########################## BOTON CANCEL DE PAGINA DE REGISTRO*/
 .btn-cancel {
-    background-color: #f4ae36; /* Rojo */
-    color: white;
-}
-
+    background-color: #f4ae36;
+    color: white;}
 .btn-cancel:hover {
-    background-color: #d32f2f;
-}
+    background-color: #af4cad;}
 
+
+/* ########################## BOTON GUARDAR - PAGINA DE REGISTRO*/
 .btn-save {
-    background-color: #af4cad; /* Verde */
-    color: white;
-}
-
+    background-color: #af4cad;
+    color: white;}
 .btn-save:hover {
-    background-color: #45a049;
-}
+    background-color: #1976D2;}
 
+
+/* ########################## BOTON LOGIN - PAGINA DE LOGIN */
 .btn-login {
-    background-color: #ff9800; /* Azul */
+    background-color: #ff9800;
     color: white;
-    width: 100%; /* Ocupa todo el ancho si no hay otros botones al lado */
+    width: calc(100% - 40px); /* Ocupa todo el ancho si no hay otros botones al lado */
     margin-bottom: 15px;
-}
-
-.btn-login:hover {
-    background-color: #1976D2;
-}
-
-.btn-register {
-    background-color: #ff9800; /* Naranja */
-    color: white;
-    width: 100%;
     display: block; /* Para que ocupe su propia línea */
-    padding: 12px 0; /* Ajusta padding */
-}
+    padding: 12px 0;} /* Ajusta padding */
+.btn-login:hover {
+    background-color: #1976D2;}
 
+
+/* ########################## BOTON REGISTER - PAGINA DE LOGIN */
+.btn-register {
+    background-color: #ff9800; 
+    color: white;
+    width: calc(100% - 40px); /* AJUSTE BOTON REGISTRAR */
+    display: block; /* Para que ocupe su propia línea */
+    padding: 12px 0;} /* Ajusta padding */
 .btn-register:hover {
-    background-color: #fb8c00;
-}
+    background-color: #af4cad;}
 
 
-/* Estilos para index.ejs (Página Principal) */
+/* ################################### ESTILOS PAGINA PRINCIPAL- me quede aqui*/ 
 .main-container {
     flex-direction: column; /* Contenido apilado */
     align-items: center;
@@ -220,7 +238,7 @@ body {
 .btn-logout, .btn-login-main {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #f436e4; /* Rojo */
+    background-color: #f436e4;
     color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -228,22 +246,24 @@ body {
     transition: background-color 0.3s ease;
 }
 
+/* ########################## BOTON LOGIN DE PAGINA DE LOGIN */
 .btn-login-main {
-    background-color: #2196F3; /* Azul para "Iniciar Sesión" */
-}
-
+    background-color: #2196F3;} /* Azul para "Iniciar Sesión" */
 .btn-logout:hover, .btn-login-main:hover {
-    background-color: #d32f2f;
-}
+    background-color: #af4cad;}
 
 .content-section {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-    gap: 30px; /* Espacio entre las secciones */
+    gap: 30px;         /* ESPACIO ENTRE LAS SECCIONES */
     width: 100%;
     justify-content: center; /* Centrar elementos dentro */
     align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
 }
+
+/* ############################################################ */
+/* ######################## IMAGENES ########################## */
+/* ############################################################ */
 
 .image-gallery {
     flex: 1; /* Ocupa el espacio disponible */
@@ -267,6 +287,9 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* ############################################################ */
+/* ############################################################ */
+
 .antecedentes-section {
     flex: 2; /* Ocupa el doble de espacio que la galería */
     min-width: 400px; /* Ancho mínimo para los antecedentes */
@@ -277,7 +300,7 @@ body {
 }
 
 .antecedentes-section h2 {
-    color: #2e7d32;
+    color: #742020;
     margin-bottom: 15px;
     font-size: 1.8em;
 }
@@ -303,6 +326,69 @@ body {
     background-color: #d32f2f;
 }
 
+
+
+/* ############################################################ */
+/* ########################## NUEVO ########################### */
+
+.registration-info-section {
+    flex: 2;
+    min-width: 400px;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.registration-info-section h2,
+.registration-info-section h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.registration-info-section h3 {
+    font-size: 1.3em;
+    margin-top: 25px;
+}
+
+.registration-info-section ul {
+    list-style: disc inside;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.registration-info-section li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.registration-info-section p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 25px 0;
+}
+
+.email-address {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* ############################################################ */
+/* ############################################################ */
+
+
+
+
 /* Media Queries para responsividad */
 @media (max-width: 768px) {
     .container, .main-container {
@@ -313,15 +399,21 @@ body {
 
     .form-section, .logo-section {
         padding: 20px;
+        flex: none; /* AJUSTADO: En móvil, que no usen flex para que el ancho sea 100% */
+        width: 100%; /* AJUSTADO: Asegura que ocupen el 100% del ancho disponible en móvil */
     }
 
     .inline-buttons {
         flex-direction: column;
         gap: 10px;
+        max-width: 100%; /* Asegura que en móvil tome todo el ancho */
     }
 
     .btn-cancel, .btn-save, .btn-login, .btn-register {
-        width: 100%;
+        width: 100%; /* AJUSTADO: Los botones ocupan el 100% en móviles */
+        max-width: 250px; /* Puedes establecer un ancho máximo para que no sean demasiado grandes en móviles */
+        margin-left: auto; /* Centrar en móvil */
+        margin-right: auto; /* Centrar en móvil */
     }
 
     .content-section {
@@ -332,5 +424,10 @@ body {
     .image-gallery {
         min-width: unset; /* Eliminar min-width en móviles si interfiere */
         grid-template-columns: 1fr; /* Una columna para móviles */
+    }
+
+    .antecedentes-section, .registration-info-section {
+        min-width: unset; /* Eliminar min-width en móviles */
+        width: 100%;
     }
 }
